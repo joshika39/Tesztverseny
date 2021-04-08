@@ -1,4 +1,6 @@
-﻿namespace Tesztverseny
+﻿using Tesztverszeny;
+
+namespace Tesztverseny
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -8,6 +10,8 @@
         public MainWindow()
         {
             InitializeComponent();
+            Importer importer = new Importer();
+            importer.Import("valaszok.txt");
         }
     }
 }
