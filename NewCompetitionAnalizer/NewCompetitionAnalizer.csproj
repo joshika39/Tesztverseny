@@ -108,7 +108,7 @@
       <Folder Include="MVVM\Model" />
     </ItemGroup>
     <ItemGroup>
-      <Content Include="Images\close_button.png" />
+      <Resource Include="Images\close_button.png" />
       <Content Include="Images\first.png" />
       <Content Include="Images\second.png" />
       <Content Include="Images\third.png" />
