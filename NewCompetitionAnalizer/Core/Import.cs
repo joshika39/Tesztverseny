@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Windows.Documents;
 
 namespace Tesztverszeny
 {
@@ -18,26 +16,21 @@ namespace Tesztverszeny
 
     public class Importer
     {
-        private readonly List<Competitor> _competitors = new List<Competitor>();
-        private char[] _correct;
-        private Competitor _competitor;
+        public List<Competitor> Competitors { get; } = new List<Competitor>();
+        public char[] Correct { get; private set; }
         public int NumCompetitors { get; private set; }
-
-        public List<Competitor> Competitors => _competitors;
-
-        public char[] Correct => _correct;
 
         /* Method to import the file with the answers, and write the file with the points
          * string location : the location of the file that stores the answers
-         * 
          */
         public void Import(string location)
         {
             
             var reader = new StreamReader(location);
             
-            string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string specificFolderData = Path.Combine(folder, "VersenyInfo");
+            // setup a folder to store appdata
+            var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            var specificFolderData = Path.Combine(folder, "VersenyInfo");
             specificFolderData += "/data/";
             Directory.CreateDirectory(specificFolderData);
 
@@ -48,26 +41,26 @@ namespace Tesztverszeny
             NumCompetitors = 0;
             
             // The first line is the correct answer
-            _correct = reader.ReadLine()?.ToCharArray();
+            Correct = reader.ReadLine()?.ToCharArray();
             
             while (!reader.EndOfStream)
             {
-                _competitor = new Competitor();
+                var competitor = new Competitor();
                 
                 // Separate the competitor's code with their answers  
                 var temp = reader.ReadLine()?.Split();
                 if (temp == null) continue;
             
                 // Set the data
-                _competitor.Code = temp[0];
-                _competitor.Answers = temp[1].ToCharArray();
-                _competitor.Points = CalculatePoints(_competitor.Answers);
+                competitor.Code = temp[0];
+                competitor.Answers = temp[1].ToCharArray();
+                competitor.Points = CalculatePoints(competitor.Answers);
             
                 // Save data to a list
-                _competitors.Add(_competitor);
+                Competitors.Add(competitor);
                 
                 // Write the points to the file 
-                writer.WriteLine($"{temp[0]} {_competitor.Points}");
+                writer.WriteLine($"{temp[0]} {competitor.Points}");
                 
                 NumCompetitors++;
             }
@@ -78,7 +71,6 @@ namespace Tesztverszeny
         /* Function to get the answers of a competitor and its correction
          * string code : the code of the competitor
          * return : An array of strings. If the string is two chars long, the second one is the correct answer
-         * TODO: test
          */
         public string[] GetCompetitor(string code)
         {
@@ -87,13 +79,13 @@ namespace Tesztverszeny
             /* Some linq black magic
              * Gets the first competitor where competitor.Code == code
              */
-            var competitor = _competitors.ToArray().First(x => x.Code == code);
+            var competitor = Competitors.ToArray().First(x => x.Code == code);
 
             var answers = competitor.Answers;
 
             for (var i = 0; i < 14; i++)
             {
-                result[i] = answers[i] == _correct[i] ? $"{answers[i]}" : $"{answers[i]}{_correct[i]}";
+                result[i] = answers[i] == Correct[i] ? $"{answers[i]}" : $"{answers[i]}{Correct[i]}";
             }
             
             return result;
@@ -104,23 +96,21 @@ namespace Tesztverszeny
          * int n : number of the task
          * return : a string array which first element is the number and the second is the percentage,
          *  the third is the answer itself.
-         * TODO: test
          */
         public string[] GetTask(int n)
         {
             n -= 1;
             // Count number of correct solutions of a task 
-            var numCorrect = _competitors.Count(competitor => competitor.Answers[n] == _correct[n]);
+            var numCorrect = Competitors.Count(competitor => competitor.Answers[n] == Correct[n]);
             
             // Return number of correct solution and the percentage 
             return new[] {Convert.ToString(numCorrect), 
-                Convert.ToString(Convert.ToDouble(numCorrect) / NumCompetitors * 100.0, CultureInfo.CurrentCulture), _correct[n].ToString()};
+                Convert.ToString(Convert.ToDouble(numCorrect) / NumCompetitors * 100.0, CultureInfo.CurrentCulture), Correct[n].ToString()};
         }
 
         
         /* Function to get the podiums
          * return : The competitors who had the best 3 points
-         * TODO: test
          */
         public IEnumerable<Competitor> GetPodium()
         {
@@ -128,9 +118,9 @@ namespace Tesztverszeny
             var second = new List<Competitor>();
             var third  = new List<Competitor>();
 
-            first.Add(_competitors[0]);
+            first.Add(Competitors[0]);
 
-            foreach (var competitor in _competitors)
+            foreach (var competitor in Competitors)
             {
                 // Sort the competitors into a top 3 in probably the worst way
                 if (first[0].Points < competitor.Points)
@@ -165,7 +155,6 @@ namespace Tesztverszeny
         /* Function to calculate the points
          * char[] answers : the array that stores the answers of the competitor
          * return : the points
-         * TODO: test
          */
         private int CalculatePoints(IReadOnlyList<char> answers)
         {
@@ -174,7 +163,7 @@ namespace Tesztverszeny
             for (var i = 0; i < 14; i++)
             {
                 // If incorrect or skipped, then go to the next task
-                if (answers[i] != _correct[i]) continue;
+                if (answers[i] != Correct[i]) continue;
 
                 // Increase the point counter with the correct amount based on the task number
                 points += i switch
