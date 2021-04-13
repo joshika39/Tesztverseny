@@ -43,8 +43,7 @@
                     VerticalAlignment="Center"
                     Margin="0,0,20,0"
                     Style="{StaticResource ImageButtonStyle}">
-                <Image Name="CloseImage" Width="50" Height="50"
-                       Source="D:\学校\Jetbrains\C#\VersenyInfo\VersenyInfo\Images\close_button.png" />
+                <Image Name="CloseImage" Width="50" Height="50"/>
             </Button>
 
             <!-- Navigation Panel with three radio buttons -->
