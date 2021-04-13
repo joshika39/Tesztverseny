@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Windows.Documents;
 
 namespace Tesztverszeny
 {
@@ -23,20 +25,30 @@ namespace Tesztverszeny
 
         public List<Competitor> Competitors => _competitors;
 
+        public char[] Correct => _correct;
+
         /* Method to import the file with the answers, and write the file with the points
          * string location : the location of the file that stores the answers
-         * TODO: test
+         * 
          */
         public void Import(string location)
         {
+            
             var reader = new StreamReader(location);
-            var writer = new StreamWriter("pontok.txt");
+            
+            string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string specificFolderData = Path.Combine(folder, "VersenyInfo");
+            specificFolderData += "/data/";
+            Directory.CreateDirectory(specificFolderData);
+
+            var uniquePointName = Path.GetFileName(location);
+            var writer = new StreamWriter(specificFolderData + "pontok-" + uniquePointName);
             
             NumCompetitors = 0;
             
             // The first line is the correct answer
             _correct = reader.ReadLine()?.ToCharArray();
-
+            
             while (!reader.EndOfStream)
             {
                 _competitor = new Competitor();
@@ -44,12 +56,12 @@ namespace Tesztverszeny
                 // Separate the competitor's code with their answers  
                 var temp = reader.ReadLine()?.Split();
                 if (temp == null) continue;
-
+            
                 // Set the data
                 _competitor.Code = temp[0];
                 _competitor.Answers = temp[1].ToCharArray();
                 _competitor.Points = CalculatePoints(_competitor.Answers);
-
+            
                 // Save data to a list
                 _competitors.Add(_competitor);
                 
@@ -88,7 +100,8 @@ namespace Tesztverszeny
         
         /* Function to get the number and percentage of correct solutions of a given task 
          * int n : number of the task
-         * return : a string array which first element is the number and the second is the percentage
+         * return : a string array which first element is the number and the second is the percentage,
+         *  the third is the answer itself.
          * TODO: test
          */
         public string[] GetTask(int n)
@@ -99,7 +112,7 @@ namespace Tesztverszeny
             
             // Return number of correct solution and the percentage 
             return new[] {Convert.ToString(numCorrect), 
-                Convert.ToString(Convert.ToDouble(numCorrect) / NumCompetitors * 100.0, CultureInfo.CurrentCulture)};
+                Convert.ToString(Convert.ToDouble(numCorrect) / NumCompetitors * 100.0, CultureInfo.CurrentCulture), _correct[n].ToString()};
         }
 
         
@@ -142,7 +155,7 @@ namespace Tesztverszeny
             result.AddRange(first);
             result.AddRange(second);
             result.AddRange(third);
-
+            
             return result.ToArray();
         }  
         

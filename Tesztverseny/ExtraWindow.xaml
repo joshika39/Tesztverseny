@@ -1,0 +1,27 @@
+﻿<Window x:Class="Tesztverseny.ExtraWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tesztverseny"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="500" Width="810">
+        <Grid ShowGridLines="True">
+                <DockPanel>
+                        <Menu DockPanel.Dock="Top">
+                                <MenuItem Header="_Fájl">
+                                        <MenuItem Header="_Kiválasztás" Name="SelectFileName" />
+                                        <MenuItem Header="_Importálás" Click="ImportFile"/>
+                                        <MenuItem Header="_Letöltés" Click="DownloadFile"/>
+                                </MenuItem>
+                                <MenuItem Header="_Ablak">
+                                        <MenuItem Header="_Kilépés" Click="WindowExit"/>
+                                </MenuItem>
+                        </Menu>
+                        <StackPanel></StackPanel>
+                </DockPanel>
+                <Grid Name="WindowContent" Margin="5, 25,5, 5"></Grid>
+                <TextBlock Name="emptyNotify" Margin="0, 10" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="18">Kérem válasszon egy verseny fájlt a 'Fájl'>'Kiválasztás' alatt!</TextBlock>
+        </Grid>
+</Window>

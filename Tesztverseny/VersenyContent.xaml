@@ -1,0 +1,203 @@
+<UserControl x:Class="Tesztverseny.VersenyContent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid ShowGridLines="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="350"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid ShowGridLines="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <DockPanel>
+                <TextBlock VerticalAlignment="Center" Margin="10, 0, 0, 0" Name="CompetitorId">ID:</TextBlock>
+                <TextBox Name="SearchBox" Width="50" Margin="5, 2" TextAlignment="Left" HorizontalAlignment="Left" VerticalContentAlignment="Center">N/A</TextBox>
+                <Button Name="IdSearch"  Width="Auto" Padding="6, 0" Margin="5, 2"  HorizontalAlignment="Left">Keresés</Button>
+            </DockPanel>
+            
+            
+            
+            <Grid Grid.Row="1" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center" ShowGridLines="False">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <!--Competitor Answer List Left -->
+                <ItemsControl Name="CompetitorAnswerLeft" Margin="5" HorizontalAlignment="Left">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ShowGridLines="False">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25"/>
+                                    <ColumnDefinition Width="25"/>
+                                    <ColumnDefinition Width="25"/>
+                                </Grid.ColumnDefinitions>
+                                
+                                <TextBlock  Padding="5, 2" Text="{Binding Counter}" d:DataContext="{d:DesignInstance }" />
+                                <TextBlock Grid.Column="1" Padding="5, 2"  TextAlignment="Center" Foreground="{Binding FGColor}" Background="{Binding BGColor}" Text="{Binding FirstLetter}"
+                                           d:DataContext="{d:DesignInstance}" />
+                                <TextBlock Grid.Column="2" Padding="5, 2" TextAlignment="Center" Text="{Binding SecondLetter}"
+                                           d:DataContext="{d:DesignInstance }" />
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                
+                <!--Competitor Answer List Right -->
+                <ItemsControl Grid.Column="1" Name="CompetitorAnswerRight" Margin="5" HorizontalAlignment="Left">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ShowGridLines="False">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25"/>
+                                    <ColumnDefinition Width="25"/>
+                                    <ColumnDefinition Width="25"/>
+                                </Grid.ColumnDefinitions>
+                                
+                                <TextBlock Padding="5, 2" Text="{Binding Counter}" d:DataContext="{d:DesignInstance}" />
+                                <TextBlock Grid.Column="1" Padding="5, 2" TextAlignment="Center" Foreground="{Binding FGColor}" Background="{Binding BGColor}" Text="{Binding FirstLetter}"
+                                           d:DataContext="{d:DesignInstance }" />
+                                <TextBlock Grid.Column="2" Padding="5, 2" TextAlignment="Center" Text="{Binding SecondLetter}"
+                                           d:DataContext="{d:DesignInstance}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </Grid>
+        
+        <Grid Column="1" ShowGridLines="False">
+            <Grid ShowGridLines="False">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                
+                <!-- Grid for the task search bar-->
+                <Grid ShowGridLines="False">
+                    <Grid ShowGridLines="False">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <DockPanel>
+                            <TextBlock VerticalAlignment="Center" Margin="10, 0, 0, 0" Name="TaskNumber">ID:</TextBlock>
+                            <TextBox Name="SearchBoxTask" Width="50" Padding="0,5" Margin="5, 2" TextAlignment="Left" HorizontalAlignment="Left" VerticalContentAlignment="Center">N/A</TextBox>
+                            <Button Name="TaskSearch"  Width="Auto" Padding="6, 0" Margin="5, 2"  HorizontalAlignment="Left">Keresés</Button>
+                        </DockPanel>
+                        
+                        
+                        <Grid Row="1" ShowGridLines="False">
+                            <Grid ShowGridLines="False" Height="100">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="160"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <!-- <Border Margin="10,10, 0, 0" BorderThickness="0, 0, 1, 1" BorderBrush="Black"  -->
+                                <!--         Grid.Column="0" Grid.Row="0"/> -->
+                                <!-- <Border Margin="0,10, 20, 0" BorderThickness="1, 0, 0, 1" BorderBrush="Black"  -->
+                                <!--         Grid.Column="1" Grid.Row="0"/> -->
+                                <!-- -->
+                                <!-- <Border Margin="10,0 ,0,10" BorderThickness="0, 1, 1, 0" BorderBrush="Black"  -->
+                                <!--         Grid.Column="0" Grid.Row="1"/> -->
+                                <!-- <Border Margin="0,0 ,20,10" BorderThickness="1, 1, 0, 0" BorderBrush="Black"  -->
+                                <!--         Grid.Column="1" Grid.Row="1"/> -->
+                                
+                                <TextBlock Grid.Column="0" Grid.Row="0" Margin="20, 0, 0, 10" FontSize="16" VerticalAlignment="Bottom" HorizontalAlignment="Left">Válasz:</TextBlock>
+                                <TextBlock Grid.Column="0" Grid.Row="1" Margin="20, 0, 0, 0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left">Helyesek száma:</TextBlock>
+                                <TextBlock Grid.Column="0" Grid.Row="2" Margin="20, 10, 0, 0" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left">Versenyzők száma:</TextBlock>
+                                
+                                <TextBlock Grid.Column="1" Grid.Row="0" Margin="20, 0, 0, 10"  Name="TaskAnswer"  HorizontalAlignment="Left"
+                                           VerticalAlignment="Bottom"></TextBlock>
+                                <TextBlock Grid.Column="1" Grid.Row="1" Margin="20, 0, 0, 0" Name="TaskInfo"  HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"></TextBlock>
+                                <TextBlock Grid.Column="1" Grid.Row="2" Margin="20, 10, 0, 0" Name="CompetitorNumber"  HorizontalAlignment="Left"
+                                           VerticalAlignment="Top">N/A</TextBlock>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                
+                <ScrollViewer  Grid.Row="1" VerticalAlignment="Center"
+                               CanContentScroll="True" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto">
+                    <ListBox Name="WinnerList" HorizontalContentAlignment="Stretch" SelectionChanged="PrintText">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="30" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding Position}" d:DataContext="{d:DesignInstance}" />
+                                    <TextBlock Grid.Column="1" Text="{Binding Code}"
+                                               d:DataContext="{d:DesignInstance}" />
+                                    <TextBlock Grid.Column="2" Text="{Binding Point}"
+                                               d:DataContext="{d:DesignInstance}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="2" ShowGridLines="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <Grid ShowGridLines="False">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <CheckBox  VerticalAlignment="Center" HorizontalAlignment="Center" Name="IdCheck">ID</CheckBox>
+                <CheckBox Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Name="TaskCheck">Feladat</CheckBox>
+                <CheckBox Grid.Column="2"  VerticalAlignment="Center" HorizontalAlignment="Center" Name="RTaskCheck">Helyes Megoldások</CheckBox>
+            </Grid>
+            
+            <Grid Row="1" Margin="0, 20, 0, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="110"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock FontSize="17" VerticalAlignment="Center">Versenyző ID</TextBlock>
+                <TextBlock Grid.Column="1" FontSize="17" VerticalAlignment="Center">Pontszám</TextBlock>
+            </Grid>
+            <ScrollViewer Grid.Row="2" 
+                          CanContentScroll="True" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto">
+                <ListBox  Name="SearchResultList" HorizontalContentAlignment="Stretch" SelectionChanged="PrintText">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding Code}" d:DataContext="{d:DesignInstance}" />
+                                <TextBlock Grid.Column="1" Text="{Binding Point}" d:DataContext="{d:DesignInstance}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>
