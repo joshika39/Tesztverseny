@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesztverseny", "Tesztversen
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "VersenyInfoSetup", "VersenyInfoSetup\VersenyInfoSetup.vdproj", "{863FE97A-3B7E-45A8-9978-E94FE46429D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesztverseny_2.0", "Tesztverseny_2.0\Tesztverseny_2.0.csproj", "{9AB1C8A4-8024-4788-9364-AC2003AF338A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewCompetitionAnalizer", "NewCompetitionAnalizer\NewCompetitionAnalizer.csproj", "{CF698C9F-867C-428A-BFAC-6D3EA3AA62AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,10 @@ Global
 		{E42BD411-8B7D-45DB-B6AE-E5F67A8337D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{863FE97A-3B7E-45A8-9978-E94FE46429D5}.Debug|Any CPU.ActiveCfg = Debug
 		{863FE97A-3B7E-45A8-9978-E94FE46429D5}.Release|Any CPU.ActiveCfg = Release
-		{9AB1C8A4-8024-4788-9364-AC2003AF338A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9AB1C8A4-8024-4788-9364-AC2003AF338A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9AB1C8A4-8024-4788-9364-AC2003AF338A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9AB1C8A4-8024-4788-9364-AC2003AF338A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF698C9F-867C-428A-BFAC-6D3EA3AA62AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF698C9F-867C-428A-BFAC-6D3EA3AA62AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF698C9F-867C-428A-BFAC-6D3EA3AA62AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF698C9F-867C-428A-BFAC-6D3EA3AA62AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

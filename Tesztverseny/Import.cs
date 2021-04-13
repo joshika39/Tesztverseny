@@ -37,7 +37,7 @@ namespace Tesztverszeny
             var reader = new StreamReader(location);
             
             string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string specificFolderData = Path.Combine(folder, "VersenyInfo");
+            string specificFolderData = Path.Combine(folder, "Competition Inspector");
             specificFolderData += "/data/";
             Directory.CreateDirectory(specificFolderData);
 

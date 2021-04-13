@@ -1,0 +1,27 @@
+﻿<Application x:Class="VersenyInfo.App"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:VersenyInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             StartupUri="MainWindow.xaml"
+             xmlns:viewModel="clr-namespace:VersenyInfo.MVVM.ViewModel"
+             xmlns:view="clr-namespace:VersenyInfo.MVVM.View">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml" />
+                <ResourceDictionary Source="Theme/SearchTheme.xaml"/>
+                <ResourceDictionary Source="Theme/SrollBarTheme.xaml"/>
+                <ResourceDictionary Source="Theme/ButtonTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView />
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewModel:TaskViewModel}">
+                <view:TaskView />
+            </DataTemplate>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

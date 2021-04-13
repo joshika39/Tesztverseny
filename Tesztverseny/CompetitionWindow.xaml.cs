@@ -36,7 +36,7 @@ namespace Tesztverseny
             Title = _isMain ? "Verseny Információ Főablak" : "Verseny Információ Segédablak";
             
             string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string specificFolder = Path.Combine(folder, "VersenyInfo", "Versenyek");
+            string specificFolder = Path.Combine(folder, "Competition Inspector", "Versenyek");
             Directory.CreateDirectory(specificFolder);
             
             var wClient = new WebClient();
@@ -55,7 +55,7 @@ namespace Tesztverseny
         private void ReloadSelectableFiles()
         {
             string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string specificFolder = Path.Combine(folder, "VersenyInfo/Versenyek");
+            string specificFolder = Path.Combine(folder, "Competition Inspector/Versenyek");
             Directory.CreateDirectory(specificFolder);
             
             DirectoryInfo dirInfo = new DirectoryInfo(specificFolder);
@@ -77,7 +77,7 @@ namespace Tesztverseny
         private void DownloadFile(object sender, RoutedEventArgs e)
         {
             string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string specificFolder = Path.Combine(folder, "VersenyInfo", "Versenyek");
+            string specificFolder = Path.Combine(folder, "Competition Inspector", "Versenyek");
             Directory.CreateDirectory(specificFolder);
 
             var dialog = new SaveFileDialog
@@ -97,7 +97,7 @@ namespace Tesztverseny
         private void ImportFile(object sender, RoutedEventArgs e)
         {
             string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string specificFolder = Path.Combine(folder, "VersenyInfo", "Versenyek");
+            string specificFolder = Path.Combine(folder, "Competition Inspector", "Versenyek");
             Directory.CreateDirectory(specificFolder);
 
             //Set up the dialog for file selection
@@ -177,7 +177,7 @@ namespace Tesztverseny
             if (mi == null) return;
             
             var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            var specificFolder = Path.Combine(folder, "VersenyInfo/Versenyek");
+            var specificFolder = Path.Combine(folder, "Competition Inspector/Versenyek");
             Directory.CreateDirectory(specificFolder);
                 
             _importer = new Importer();

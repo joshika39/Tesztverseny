@@ -24,7 +24,7 @@ namespace Tesztverseny
             InitializeComponent();
 
             string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string specificFolder = Path.Combine(folder, "VersenyInfo");
+            string specificFolder = Path.Combine(folder, "Competition Inspector");
 
             _importer = importer;
             if (_importer.Competitors.Count != 0)
