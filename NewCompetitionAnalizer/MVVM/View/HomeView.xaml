@@ -162,8 +162,8 @@
                                 <Grid ShowGridLines="False">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="35" />
-                                        <ColumnDefinition Width="30" />
-                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="35" />
+                                        <ColumnDefinition Width="35" />
                                     </Grid.ColumnDefinitions>
 
                                     <TextBlock
@@ -199,8 +199,8 @@
 
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="35" />
-                                        <ColumnDefinition Width="30" />
-                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="35" />
+                                        <ColumnDefinition Width="35" />
                                     </Grid.ColumnDefinitions>
 
                                     <TextBlock

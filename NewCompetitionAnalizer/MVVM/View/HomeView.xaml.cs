@@ -17,7 +17,7 @@ namespace NewCompetitionAnalizer.MVVM.View
         private List<AnswerCheck> _answerCheckRight = new List<AnswerCheck>();
 
         
-        private readonly bool _hasCompetitors;
+        private readonly bool _hasCompetitors = false;
         private Importer _importer;
 
         public HomeView()
@@ -29,13 +29,15 @@ namespace NewCompetitionAnalizer.MVVM.View
             string specificFolder = Path.Combine(folder, "VersenyInfo", "Versenyek");
 
             _importer = new Importer();
-            _importer.Import(specificFolder + "/valaszok.txt");
+            if (File.Exists(specificFolder + "/valaszok.txt"))
+                _importer.Import(specificFolder + "/valaszok.txt");
             
             if (_importer.Competitors.Count != 0)
             {
                 _hasCompetitors = true;
-                FirstConfiguration();
             }
+            FirstConfiguration();
+            
         }
         
         private void FirstConfiguration()
@@ -50,9 +52,9 @@ namespace NewCompetitionAnalizer.MVVM.View
                 CompetitorNumber.Text = $"Összes versenyzők száma: {_importer.NumCompetitors}";
                 string[] medals =
                 {
-                    @"D:\programming\classstuff\oop\Tesztverseny\NewCompetitionAnalizer\Images\first.png",
-                    @"D:\programming\classstuff\oop\Tesztverseny\NewCompetitionAnalizer\Images\second.png",
-                    @"D:\programming\classstuff\oop\Tesztverseny\NewCompetitionAnalizer\Images\third.png"
+                    @"\Images\first.png",
+                    @"\Images\second.png",
+                    @"\Images\third.png"
                 };
                 var winners = _importer.GetPodium();
                 var competitors = winners as Tesztverszeny.Competitor[] ?? winners.ToArray();
@@ -206,6 +208,11 @@ namespace NewCompetitionAnalizer.MVVM.View
             }
             else
             {
+                // MessageBox.Show(
+                //     $"No competitors",
+                //     "Figyelem",
+                //     MessageBoxButton.OK,
+                //     MessageBoxImage.Asterisk);
                 for (int i = 0; i < 14; i++)
                 {
                     if (i < 7)
@@ -213,7 +220,7 @@ namespace NewCompetitionAnalizer.MVVM.View
                         _answerCheckLeft.Add(new AnswerCheck()
                         {
                             FirstLetter = "N/A", Counter = i + 1 + ".",
-                            FGColor = "#000",
+                            FGColor = "Azure",
                             BGColor = "#00FFFFFF"
                         });
                     }
@@ -222,7 +229,7 @@ namespace NewCompetitionAnalizer.MVVM.View
                         _answerCheckRight.Add(new AnswerCheck()
                         {
                             FirstLetter = "N/A", Counter = i + 1 + ".",
-                            FGColor = "#000",
+                            FGColor = "Azure",
                             BGColor = "#00FFFFFF"
                         });
                     }

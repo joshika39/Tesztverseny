@@ -69,7 +69,17 @@
                         Foreground="Azure"
                         FontSize="14"
                         Style="{StaticResource ImportButtonTheme}"/>
-
+                
+                <Button Content="Letöltés" 
+                        Click="DownloadData"
+                        Height="50"
+                        Foreground="Azure"
+                        FontSize="14"
+                        Style="{StaticResource ImportButtonTheme}"/>
+                <ComboBox SelectedValuePath="Content" MinWidth="150" Name="FileList" DropDownClosed="ComboBox_DropDownClosed">
+                    <ComboBoxItem Content="Válasszon fájlt" IsSelected="True"/>
+                    <ComboBoxItem Content="{Binding Path=Name}" d:DataContext="{d:DesignInstance}" />
+                </ComboBox>
             </StackPanel>
 
             <!-- The Content itself -->
