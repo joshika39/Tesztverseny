@@ -53,9 +53,9 @@ namespace NewCompetitionAnalizer.MVVM.View
                 CompetitorNumber.Text = $"Összes versenyzők száma: {_importer.NumCompetitors}";
                 string[] medals =
                 {
-                    @"\Images\first.png",
-                    @"\Images\second.png",
-                    @"\Images\third.png"
+                    @"D:\programming\classstuff\oop\Tesztverseny\NewCompetitionAnalizer\Images\first.png",
+                    @"D:\programming\classstuff\oop\Tesztverseny\NewCompetitionAnalizer\Images\second.png",
+                    @"D:\programming\classstuff\oop\Tesztverseny\NewCompetitionAnalizer\Images\third.png"
                 };
                 var winners = _importer.GetPodium();
                 var competitors = winners as Tesztverszeny.Competitor[] ?? winners.ToArray();

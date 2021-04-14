@@ -20,7 +20,7 @@ namespace NewCompetitionAnalizer
             InitializeComponent();
             this.MouseDown += Window_MouseDown;
             string path = Path.GetFullPath("Images/image.jpg");
-            // CloseImage.Source = new BitmapImage(new Uri(@"D:\programming\classstuff\oop\Tesztverseny\NewCompetitionAnalizer\Images\close_button.png"));
+            CloseImage.Source = new BitmapImage(new Uri(@"D:\programming\classstuff\oop\Tesztverseny\NewCompetitionAnalizer\Images\close_button.png"));
             HomeView home = new HomeView(fileLocation);
             WindowContent.Children.Add(home);
             selectedView = 0;

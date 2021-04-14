@@ -181,7 +181,7 @@
     </Window.DataContext>
 
     <Border Background="#272537"
-            CornerRadius="20" BorderBrush="Aquamarine" BorderThickness="3">
+            CornerRadius="10" BorderBrush="Aquamarine" BorderThickness="3">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200" />
@@ -226,24 +226,48 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Click="TaskClick"/>
                 
-                <Button Content="Importálás" 
-                        Click="LoadData"
-                        Height="50"
-                        Foreground="Azure"
-                        FontSize="14"
-                        Style="{StaticResource ImportButtonTheme}"/>
+                <Border Background="#FF2d2a40"
+                        CornerRadius="0, 10, 0, 10"
+                        Margin="0, 188, 0, 0">
+                    
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        
+                        <ComboBox Grid.Row="0"
+                                  Margin="20,20"
+                                  SelectedValuePath="Content"
+                                  MinWidth="50"
+                                  Name="FileList" 
+                                  DropDownClosed="ComboBox_DropDownClosed">
+                            <ComboBoxItem Content="Válasszon fájlt" IsSelected="True"/>
+                            <ComboBoxItem Content="{Binding Path=Name}" d:DataContext="{d:DesignInstance}" />
+                        </ComboBox>
+                        
+                        <Button Grid.Row="1"
+                                Content="Importálás" 
+                                Click="LoadData"
+                                Height="50"
+                                Foreground="Azure"
+                                FontSize="14"
+                                Style="{StaticResource ImportButtonTheme}"/>
                 
-                <Button Content="Letöltés" 
-                        Click="DownloadData"
-                        Height="50"
-                        Foreground="Azure"
-                        FontSize="14"
-                        Style="{StaticResource ImportButtonTheme}"/>
-                <ComboBox Margin="20,0" SelectedValuePath="Content" MinWidth="50" Name="FileList" 
-                          DropDownClosed="ComboBox_DropDownClosed">
-                    <ComboBoxItem Content="Válasszon fájlt" IsSelected="True"/>
-                    <ComboBoxItem Content="{Binding Path=Name}" d:DataContext="{d:DesignInstance}" />
-                </ComboBox>
+                        <Button Grid.Row="2" 
+                                Margin="0, 0, 0, 10"
+                                Content="Letöltés" 
+                                Click="DownloadData"
+                                Height="50"
+                                Foreground="Azure"
+                                FontSize="14"
+                                Style="{StaticResource ImportButtonTheme}"/>
+                        
+                    </Grid>
+                
+                </Border>    
+                
             </StackPanel>
 
             <!-- The Content itself -->
