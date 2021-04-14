@@ -217,7 +217,7 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <StackPanel Margin="0,40,0,0">
-                     <RadioButton Content="Versenyző"
+                     <RadioButton Content="Versenyzők"
                                   Cursor="Hand"
                                   Height="50"
                                   Foreground="Azure"
@@ -226,7 +226,7 @@
                                   Style="{StaticResource MenuButtonTheme}"
                                   Click="HomeClick"/>
                      
-                     <RadioButton Content="Feladat"
+                     <RadioButton Content="Feladatok"
                                   Cursor="Hand"
                                   Height="50"
                                   Foreground="Azure"
