@@ -210,8 +210,13 @@
             </Button>
 
             <!-- Navigation Panel with three radio buttons -->
-            <StackPanel Grid.Column="0" Margin="0,80,0,0" Grid.Row="1">
-                <RadioButton Content="Versenyző"
+            <Grid Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch" >
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Margin="0,40,0,0">
+                     <RadioButton Content="Versenyző"
                              Height="50"
                              Foreground="Azure"
                              IsChecked="True"
@@ -226,49 +231,51 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Click="TaskClick"/>
                 
-                <Border Background="#FF2d2a40"
-                        CornerRadius="0, 10, 0, 10"
-                        Margin="0, 188, 0, 0">
+                
+                </StackPanel>
+                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,40">
+                    <Border Background="#FF2d2a40"
+                            CornerRadius="0, 10, 0, 10" >
                     
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
                         
-                        <ComboBox Grid.Row="0"
-                                  Margin="20,20"
-                                  SelectedValuePath="Content"
-                                  MinWidth="50"
-                                  Name="FileList" 
-                                  DropDownClosed="ComboBox_DropDownClosed">
-                            <ComboBoxItem Content="Válasszon fájlt" IsSelected="True"/>
-                            <ComboBoxItem Content="{Binding Path=Name}" d:DataContext="{d:DesignInstance}" />
-                        </ComboBox>
+                            <ComboBox Grid.Row="0"
+                                      Margin="20,20"
+                                      SelectedValuePath="Content"
+                                      MinWidth="50"
+                                      Name="FileList" 
+                                      DropDownClosed="ComboBox_DropDownClosed">
+                                <ComboBoxItem Content="Válasszon fájlt" IsSelected="True"/>
+                                <ComboBoxItem Content="{Binding Path=Name}" d:DataContext="{d:DesignInstance}" />
+                            </ComboBox>
                         
-                        <Button Grid.Row="1"
-                                Content="Importálás" 
-                                Click="LoadData"
-                                Height="50"
-                                Foreground="Azure"
-                                FontSize="14"
-                                Style="{StaticResource ImportButtonTheme}"/>
+                            <Button Grid.Row="1"
+                                    Content="Importálás" 
+                                    Click="LoadData"
+                                    Height="50"
+                                    Foreground="Azure"
+                                    FontSize="14"
+                                    Style="{StaticResource ImportButtonTheme}"/>
                 
-                        <Button Grid.Row="2" 
-                                Margin="0, 0, 0, 10"
-                                Content="Letöltés" 
-                                Click="DownloadData"
-                                Height="50"
-                                Foreground="Azure"
-                                FontSize="14"
-                                Style="{StaticResource ImportButtonTheme}"/>
+                            <Button Grid.Row="2" 
+                                    Margin="0, 0, 0, 10"
+                                    Content="Letöltés" 
+                                    Click="DownloadData"
+                                    Height="50"
+                                    Foreground="Azure"
+                                    FontSize="14"
+                                    Style="{StaticResource ImportButtonTheme}"/>
                         
-                    </Grid>
+                        </Grid>
                 
-                </Border>    
-                
-            </StackPanel>
+                    </Border>    
+                </StackPanel>
+            </Grid>
 
             <!-- The Content itself -->
             <!-- <ContentControl Grid.Column="1" Grid.Row="1" -->
