@@ -85,6 +85,7 @@
                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,60,40" />
                 </Border.Clip>
                 <Button Content="Keresés" Padding="10,0"
+                        Cursor="Hand"
                         Background="#353340" BorderBrush="Transparent"
                         Foreground="Azure" FontWeight="Bold"
                         Click="Search"/>

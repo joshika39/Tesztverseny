@@ -52,7 +52,7 @@
                                     </TextBlock>
                                 </Grid>
                             </Border>
-                            <Button Content="Keresés" Margin="20,0" FontWeight="Bold"
+                            <Button Content="Keresés" Margin="20,0" FontWeight="Bold" Cursor="Hand"
                                     Click="Search" Style="{StaticResource CustomButtonHover}"/>
                         </StackPanel>
             

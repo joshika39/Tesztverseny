@@ -205,6 +205,7 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
                     Margin="0,0,10,30"
+                    Cursor="Hand"
                     Style="{StaticResource ImageButtonStyle}">
                 <Image Name="CloseImage" Width="20" Height="20"/>
             </Button>
@@ -217,19 +218,21 @@
                 </Grid.RowDefinitions>
                 <StackPanel Margin="0,40,0,0">
                      <RadioButton Content="Versenyző"
-                             Height="50"
-                             Foreground="Azure"
-                             IsChecked="True"
-                             FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"
-                             Click="HomeClick"/>
-
-                <RadioButton Content="Feladat"
-                             Height="50"
-                             Foreground="Azure"
-                             FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"
-                             Click="TaskClick"/>
+                                  Cursor="Hand"
+                                  Height="50"
+                                  Foreground="Azure"
+                                  IsChecked="True"
+                                  FontSize="14"
+                                  Style="{StaticResource MenuButtonTheme}"
+                                  Click="HomeClick"/>
+                     
+                     <RadioButton Content="Feladat"
+                                  Cursor="Hand"
+                                  Height="50"
+                                  Foreground="Azure"
+                                  FontSize="14"
+                                  Style="{StaticResource MenuButtonTheme}"
+                                  Click="TaskClick"/>
                 
                 
                 </StackPanel>
@@ -246,6 +249,7 @@
                             </Grid.RowDefinitions>
                         
                             <ComboBox Grid.Row="0"
+                                      Cursor="Hand"
                                       Margin="20,20"
                                       SelectedValuePath="Content"
                                       MinWidth="50"
@@ -258,6 +262,7 @@
                             <Button Grid.Row="1"
                                     Content="Importálás" 
                                     Click="LoadData"
+                                    Cursor="Hand"
                                     Height="50"
                                     Foreground="Azure"
                                     FontSize="14"
@@ -266,6 +271,7 @@
                             <Button Grid.Row="2" 
                                     Content="Letöltés" 
                                     Click="DownloadData"
+                                    Cursor="Hand"
                                     Height="50"
                                     Foreground="Azure"
                                     FontSize="14"
@@ -275,6 +281,7 @@
                                     Margin="0, 0, 0, 10"
                                     Content="Pontok" 
                                     Click="OpenDataFolder"
+                                    Cursor="Hand"
                                     Height="50"
                                     Foreground="Azure"
                                     FontSize="14"

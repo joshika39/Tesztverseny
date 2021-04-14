@@ -25,6 +25,9 @@
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Background" Value="#22202f"/>
             </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#FF2d2a40"/>
+            </Trigger>
         </Style.Triggers>
     </Style>
     <Style BasedOn="{StaticResource {x:Type TypeName=Button}}"
@@ -48,6 +51,10 @@
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
         </Style.Setters>
-        
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#FF2d2a40"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>
