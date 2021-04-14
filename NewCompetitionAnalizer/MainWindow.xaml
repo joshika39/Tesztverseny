@@ -62,6 +62,13 @@
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding TaskViewCommand}" />
+                
+                <Button Content="Importálás" 
+                        Click="LoadData"
+                        Height="50"
+                        Foreground="Azure"
+                        FontSize="14"
+                        Style="{StaticResource ImportButtonTheme}"/>
 
             </StackPanel>
 
