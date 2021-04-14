@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Windows;
@@ -142,6 +143,15 @@ namespace NewCompetitionAnalizer
                     WindowContent.Children.Add(home);
                     break;
             }
+        }
+
+        private void OpenDataFolder(object sender, EventArgs e)
+        {
+            var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            var folderPath = Path.Combine(folder, "VersenyInfo");
+            folderPath += "/data/";
+            
+            Process.Start(folderPath);
         }
         
         private void ReloadSelectableFiles()

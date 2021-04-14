@@ -204,9 +204,9 @@
             <Button Click="ExitProgram" Grid.Column="1" Grid.Row="0"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
-                    Margin="0,0,20,0"
+                    Margin="0,0,10,30"
                     Style="{StaticResource ImageButtonStyle}">
-                <Image Name="CloseImage" Width="50" Height="50"/>
+                <Image Name="CloseImage" Width="20" Height="20"/>
             </Button>
 
             <!-- Navigation Panel with three radio buttons -->
@@ -234,11 +234,12 @@
                 
                 </StackPanel>
                 <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
-                    <Border Background="#FF2d2a40"
+                    <Border Background="#22202f"
                             CornerRadius="0, 10, 0, 10" >
                     
                         <Grid >
                             <Grid.RowDefinitions>
+                                <RowDefinition />
                                 <RowDefinition />
                                 <RowDefinition />
                                 <RowDefinition />
@@ -263,9 +264,17 @@
                                     Style="{StaticResource ImportButtonTheme}"/>
                 
                             <Button Grid.Row="2" 
-                                    Margin="0, 0, 0, 10"
                                     Content="Letöltés" 
                                     Click="DownloadData"
+                                    Height="50"
+                                    Foreground="Azure"
+                                    FontSize="14"
+                                    Style="{StaticResource ImportButtonTheme}"/>
+                            
+                            <Button Grid.Row="3" 
+                                    Margin="0, 0, 0, 10"
+                                    Content="Pontok" 
+                                    Click="OpenDataFolder"
                                     Height="50"
                                     Foreground="Azure"
                                     FontSize="14"
