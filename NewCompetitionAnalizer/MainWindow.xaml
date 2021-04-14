@@ -233,7 +233,7 @@
                 
                 
                 </StackPanel>
-                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,40">
+                <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
                     <Border Background="#FF2d2a40"
                             CornerRadius="0, 10, 0, 10" >
                     
