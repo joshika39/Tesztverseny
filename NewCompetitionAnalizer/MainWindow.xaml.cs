@@ -151,9 +151,8 @@ namespace NewCompetitionAnalizer
         private void OpenDataFolder(object sender, EventArgs e)
         {
             var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            var folderPath = Path.Combine(folder, "VersenyInfo");
-            folderPath += "/data/";
-            
+            var folderPath = Path.Combine(folder, "VersenyInfo/data/");
+
             Process.Start(folderPath);
         }
         
