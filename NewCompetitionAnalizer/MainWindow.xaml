@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModel="clr-namespace:NewCompetitionAnalizer.MVVM.ViewModel"
-
         xmlns:local="clr-namespace:NewCompetitionAnalizer"
                mc:Ignorable="d"
         Title="MainWindow" Height="620" Width="1120"

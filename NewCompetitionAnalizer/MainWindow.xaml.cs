@@ -98,6 +98,8 @@ namespace NewCompetitionAnalizer
             }
             else
                 File.Copy(filePath, Path.Combine(specificFolder, filename));
+            
+            ReloadSelectableFiles();
         }
 
         private void DownloadData
