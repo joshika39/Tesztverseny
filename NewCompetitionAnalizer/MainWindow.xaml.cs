@@ -6,17 +6,24 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
+using NewCompetitionAnalizer.MVVM.View;
 
 namespace NewCompetitionAnalizer
 {
     public partial class MainWindow
     {
+        private string fileLocation;
+        private int selectedView;
+        
         public MainWindow()
         {
             InitializeComponent();
             this.MouseDown += Window_MouseDown;
             string path = Path.GetFullPath("Images/image.jpg");
             // CloseImage.Source = new BitmapImage(new Uri(@"D:\programming\classstuff\oop\Tesztverseny\NewCompetitionAnalizer\Images\close_button.png"));
+            HomeView home = new HomeView(fileLocation);
+            WindowContent.Children.Add(home);
+            selectedView = 0;
             ReloadSelectableFiles();
         }
 
@@ -110,11 +117,29 @@ namespace NewCompetitionAnalizer
                 var wClient = new WebClient();
                 wClient.DownloadFile("https://kreastol.club/valaszok.txt", dialog.FileName);
             }
+            ReloadSelectableFiles();
         }
 
         private void ComboBox_DropDownClosed(object sender, EventArgs e)
         {
-            
+            var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            var specificFolder = Path.Combine(folder, "VersenyInfo/Versenyek");
+            Directory.CreateDirectory(specificFolder);
+            fileLocation = specificFolder + "/" + FileList.SelectedValue + ".txt";
+
+            switch (selectedView)
+            {
+                case 1:
+                    TaskView task = new TaskView(fileLocation);
+                    WindowContent.Children.Clear();
+                    WindowContent.Children.Add(task);
+                    break;
+                default:
+                    HomeView home = new HomeView(fileLocation);
+                    WindowContent.Children.Clear();
+                    WindowContent.Children.Add(home);
+                    break;
+            }
         }
         
         private void ReloadSelectableFiles()
@@ -136,6 +161,22 @@ namespace NewCompetitionAnalizer
                 temp = new ComboBoxItem(){Content = Path.ChangeExtension(file.Name, null)};
                 FileList.Items.Add(temp);
             }
+        }
+
+        private void HomeClick(object sender, RoutedEventArgs e)
+        {
+            selectedView = 0;
+            HomeView home = new HomeView(fileLocation);
+            WindowContent.Children.Clear();
+            WindowContent.Children.Add(home);
+        }
+
+        private void TaskClick(object sender, RoutedEventArgs e)
+        {
+            selectedView = 1;
+            TaskView task = new TaskView(fileLocation);
+            WindowContent.Children.Clear();
+            WindowContent.Children.Add(task);
         }
     }
 }

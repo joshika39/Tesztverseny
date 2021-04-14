@@ -19,18 +19,19 @@ namespace NewCompetitionAnalizer.MVVM.View
         
         private readonly bool _hasCompetitors = false;
         private Importer _importer;
+        private string _location;
 
-        public HomeView()
+        public HomeView(string location)
         {
-            
             InitializeComponent();
+            _location = location; 
             
             string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string specificFolder = Path.Combine(folder, "VersenyInfo", "Versenyek");
 
             _importer = new Importer();
-            if (File.Exists(specificFolder + "/valaszok.txt"))
-                _importer.Import(specificFolder + "/valaszok.txt");
+            if (File.Exists(_location))
+                _importer.Import(_location);
             
             if (_importer.Competitors.Count != 0)
             {

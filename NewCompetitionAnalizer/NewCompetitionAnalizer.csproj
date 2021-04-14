@@ -70,6 +70,7 @@
         <Page Include="MVVM\View\SettingsView.xaml" />
         <Page Include="MVVM\View\TaskView.xaml" />
         <Page Include="Theme\ButtonTheme.xaml" />
+        <Page Include="Theme\ComboBoxTheme.xaml" />
         <Page Include="Theme\MenuButtonTheme.xaml" />
         <Page Include="Theme\ScrollBarTheme.xaml" />
         <Page Include="Theme\SearchTheme.xaml" />

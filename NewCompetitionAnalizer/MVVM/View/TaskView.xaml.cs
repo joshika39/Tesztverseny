@@ -12,16 +12,17 @@ namespace NewCompetitionAnalizer.MVVM.View
         private readonly bool _hasCompetitors;
         private readonly Importer _importer;
         private int _lastNumSearch = 1;
-
-        public TaskView()
+        private string _location;
+        public TaskView(string location)
         {
             InitializeComponent();
+            _location = location;
             
-            string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string specificFolder = Path.Combine(folder, "VersenyInfo", "Versenyek");
 
             _importer = new Importer();
-            _importer.Import(specificFolder + "/valaszok.txt");
+            if(File.Exists(_location))
+                _importer.Import(_location);
+            
             if (_importer.Competitors.Count != 0)
                 _hasCompetitors = true;
             
