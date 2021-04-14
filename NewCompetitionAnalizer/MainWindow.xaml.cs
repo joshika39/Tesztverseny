@@ -145,6 +145,9 @@ namespace NewCompetitionAnalizer
             }
         }
 
+        /* Method to open data folder in file explorer 
+         * Called by "Pontok" button
+         */
         private void OpenDataFolder(object sender, EventArgs e)
         {
             var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);

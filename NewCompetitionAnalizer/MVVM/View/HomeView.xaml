@@ -100,7 +100,7 @@
             <Border Padding="5" Background="Aquamarine" CornerRadius="10,10,0,0" Margin="0,0,0,7">
                 <Grid>
                     <TextBlock Text="Versenyző ID" HorizontalAlignment="Left" Margin="10,0" />
-                    <TextBlock Text="Pontszám" HorizontalAlignment="Right" Margin="10,0" />
+                    <TextBlock Text="Pontszám" HorizontalAlignment="Right" Margin="0,0, 70, 0" />
                 </Grid>
             </Border>
 
