@@ -182,11 +182,12 @@
 
     <Border Background="#272537"
             CornerRadius="10" BorderBrush="Aquamarine" BorderThickness="3">
-        <Grid>
+        <Grid ShowGridLines="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="75" />
                 <RowDefinition />
@@ -211,11 +212,12 @@
             </Button>
 
             <!-- Navigation Panel with three radio buttons -->
-            <Grid Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch" >
+            <Grid ShowGridLines="True" Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch" >
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
+                
                 <StackPanel Margin="0,40,0,0">
                      <RadioButton Content="Versenyzők"
                                   Cursor="Hand"
@@ -236,11 +238,12 @@
                 
                 
                 </StackPanel>
+                
                 <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
                     <Border Background="#22202f"
                             CornerRadius="0, 10, 0, 10" >
                     
-                        <Grid >
+                        <Grid ShowGridLines="True">
                             <Grid.RowDefinitions>
                                 <RowDefinition />
                                 <RowDefinition />
@@ -298,7 +301,7 @@
             <!--                 Margin="10" -->
             <!--                 Content="{Binding CurrentView}"/> -->
             
-            <Grid Column="1" Row="1" Name="WindowContent"></Grid>
+            <Grid ShowGridLines="True" Column="1" Row="1" Name="WindowContent"></Grid>
         </Grid>
     </Border>
 </Window>

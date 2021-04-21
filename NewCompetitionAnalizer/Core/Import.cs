@@ -17,7 +17,7 @@ namespace Tesztverszeny
     public class Importer
     {
         public List<Competitor> Competitors { get; } = new List<Competitor>();
-        public char[] Correct { get; private set; }
+        private char[] Correct { get; set; }
         public int NumCompetitors { get; private set; }
 
         /* Method to import the file with the answers, and write the file with the points
