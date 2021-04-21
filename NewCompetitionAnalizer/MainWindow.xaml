@@ -182,7 +182,7 @@
 
     <Border Background="#272537"
             CornerRadius="10" BorderBrush="Aquamarine" BorderThickness="3">
-        <Grid ShowGridLines="True">
+        <Grid ShowGridLines="False">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200" />
                 <ColumnDefinition />
@@ -212,7 +212,7 @@
             </Button>
 
             <!-- Navigation Panel with three radio buttons -->
-            <Grid ShowGridLines="True" Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch" >
+            <Grid ShowGridLines="False" Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch" >
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -243,7 +243,7 @@
                     <Border Background="#22202f"
                             CornerRadius="0, 10, 0, 10" >
                     
-                        <Grid ShowGridLines="True">
+                        <Grid ShowGridLines="False">
                             <Grid.RowDefinitions>
                                 <RowDefinition />
                                 <RowDefinition />
